@@ -6,9 +6,8 @@ ENV OPENJDK8_VERSION 8.92.14-r1
 ENV GRAILS_VERSION 3.1.8
 ENV GRAILS_HOME /opt/grails
 
-RUN mkdir /opt
-
-RUN cd /opt && \
+RUN mkdir /opt && \
+        cd /opt && \
         apk -Uuv add groff less python py-pip bash ca-certificates libstdc++ openjdk8=${OPENJDK8_VERSION} curl && \
         curl -L https://github.com/grails/grails-core/releases/download/v${GRAILS_VERSION}/grails-${GRAILS_VERSION}.zip -o grails-${GRAILS_VERSION}.zip && \
         unzip grails-${GRAILS_VERSION}.zip -d /opt && \
